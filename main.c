@@ -6,7 +6,7 @@
 #include "validate.h"
 #include "rawMode.h"
 
-void main() {
+int main() {
     enableRaw();
 
     while (1) {
@@ -15,12 +15,13 @@ void main() {
         bool working = validate(encrypted);
 
         if (!working) {
-            printf("Success at %s", encrypted);
+            printf("Success at        %s", encrypted);
         } else {
-            printf("Block failed.\n");
+            printf("Block failed at   %s", encrypted);
         }
 
         free(encrypted);
         sleep(1);
     }
+    return 1;
 }
